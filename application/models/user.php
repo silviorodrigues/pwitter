@@ -84,6 +84,19 @@
 			$this->db->insert('user', $data);
 		}
 
+		public function update() {
+			$data = array(
+				'name' => $this->getName(),
+				'username' => $this->getUsername(),
+				'password' => $this->getPassword(),
+				'email' => $this->getEmail(),
+				'about' => $this->getAbout()
+			);
+
+			$this->db->where('id', $this->getId());
+			$this->db->update('user', $data);
+		}
+
 		public function canLogin($username, $password) {
 			$this->db->where('username', $username);
 			$this->db->where('password', md5($password));
