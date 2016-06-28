@@ -1,6 +1,7 @@
 <?php
 	class User extends CI_Model {
 		private $id;
+		private $name;
 		private $username;
 		private $password;
 		private $email;
@@ -12,6 +13,14 @@
 		
 		public function setId($id) {
 		    return $this->id = $id;
+		}
+
+		public function getName() {
+		    return $this->name;
+		}
+		
+		public function setName($name) {
+		    return $this->name = $name;
 		}
 
 		public function getUsername() {
@@ -56,6 +65,7 @@
 			$result = $result->row();
 
 			$this->setId($result->id);
+			$this->setName($result->name);
 			$this->setUsername($result->username);
 			$this->setPassword($result->password);
 			$this->setEmail($result->email);
@@ -64,6 +74,7 @@
 
 		public function create() {
 			$data = array(
+				'name' => $this->getName(),
 				'username' => $this->getUsername(),
 				'password' => $this->getPassword(),
 				'email' => $this->getEmail(),

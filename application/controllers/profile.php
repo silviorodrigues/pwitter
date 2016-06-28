@@ -28,6 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		public function createNow() {
+			$this->user->setName($this->input->post('name'));
 			$this->user->setUsername($this->input->post('username'));
 			$this->user->setPassword($this->input->post('password'));
 			$this->user->setEmail($this->input->post('email'));

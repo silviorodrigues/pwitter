@@ -3,6 +3,11 @@
 <?= form_open('profile/createNow') ?>
 
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" id="name" name="name">
+    <label class="mdl-textfield__label" for="name">Name</label>
+  </div>
+
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <input class="mdl-textfield__input" type="text" id="username" name="username">
     <label class="mdl-textfield__label" for="username">Username</label>
   </div>
