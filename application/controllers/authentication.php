@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($result) {
 				session_start();
 				$_SESSION['username'] = $username;
-				redirect('profile/view/'.$username);
+				redirect('profile/');
 			} else {
 				redirect('main/index');
 			}

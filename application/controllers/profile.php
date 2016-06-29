@@ -3,8 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class Profile extends CI_Controller {
 		public function index() {
+			session_start();
+
+			if(!isset($_SESSION['username']))
+				redirect('main/index');
+
+			$this->user->findByUsername($_SESSION['username']);
+
+			$result = $this->pweet->getFromUser($this->user->getId());
+			$data['result'] = $result;
+
 			$this->load->view('layout/_header');
-			$this->load->view('profile/index');
+			$this->load->view('profile/index', $data);
 			$this->load->view('layout/_footer');
 		}
 

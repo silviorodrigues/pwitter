@@ -40,4 +40,19 @@
 		public function __construct() {
 			parent::__construct();
 		}
+
+		public function save() {
+			$data = array(
+				'user_id' => $this->getUserId(),
+				'content' => $this->getContent()
+			);
+
+			$this->db->insert('pweet', $data);
+		}
+
+		public function getFromUser($userId) {
+			$this->db->where('user_id', $userId);
+			$result = $this->db->get('pweet');
+			return $result->result_object();
+		}
 	}
